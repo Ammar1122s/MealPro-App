@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View,Button} from 'react-native';
+import { StyleSheet, Text, View,Button, ImageBackground} from 'react-native';
 import CategoryScreen from './Screens/CategoryScreen';
 import CategoryTile from './Components/CategoryTile';
 import {NavigationContainer} from '@react-navigation/native'
@@ -11,6 +11,7 @@ import MealSteps from './Screens/MealSteps';
 import Fav from './Screens/Fav';
 import {Ionicons} from "@expo/vector-icons"
 import FavContextsProvider from './store/context/Fav_Context';
+import NewInput from './Screens/NewInput';
 
 
 function DrawerNavigation (){
@@ -18,17 +19,18 @@ function DrawerNavigation (){
     <Drawer.Navigator screenOptions={{
       headerTitleStyle:{
         fontSize:20,
-        color:"white"
+        color:"white",
       },
       headerTitleAlign:"center",
       headerStyle:{
-        backgroundColor:"grey"
+        backgroundColor:"transparent"
       },
+      headerTintColor:"white",
       sceneContainerStyle:{
-        backgroundColor:"#24180f"
+        backgroundColor:'transparent'
       },
       drawerActiveBackgroundColor:"grey",
-      drawerActiveTintColor:"black",
+      drawerActiveTintColor:"white",
       drawerContentStyle:{
         backgroundColor:"purple"
       },
@@ -55,6 +57,7 @@ export default function App() {
     <>
     <StatusBar style='dark'/>
     <FavContextsProvider>
+      <ImageBackground source={require('./assets/background.jpg')} style={{flex:1}}>
     <NavigationContainer>
       <stack.Navigator screenOptions={{
           headerTitleStyle:{
@@ -66,16 +69,18 @@ export default function App() {
             backgroundColor:"grey"
           },
           contentStyle:{
-            backgroundColor:"#24180f"
+            backgroundColor:'transparent'
           }
         }}>
-        
+              
         <stack.Screen name='Drawer' component={DrawerNavigation} options={{headerShown:false}} />
         <stack.Screen name='MealOverview' component={MealOverview} />
         <stack.Screen name= 'MealSteps' component={MealSteps} />
+        <stack.Screen name = 'NewInput' component={NewInput} />
       </stack.Navigator>
 
     </NavigationContainer>
+    </ImageBackground>
     </FavContextsProvider>
  
     </>

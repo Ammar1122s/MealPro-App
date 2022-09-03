@@ -34,7 +34,8 @@ function MealSteps(props) {
         return(
             props.navigation.setOptions({
                 headerRight: () => {
-                    return <ButtonIcon onPress = {presshandler} icon = {isFav ? "star" : "star-outline"}/>
+                    return <ButtonIcon onPress = {presshandler} icon = {isFav ? "star" : "star-outline"} 
+                    size ={26}/>
                 }
                 
                 

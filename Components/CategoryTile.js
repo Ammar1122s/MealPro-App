@@ -5,7 +5,7 @@ import {useNavigation} from '@react-navigation/native'
 function CategoryTile(props) {
   const navigation = useNavigation();
   return (
-  <View style = {[styles.main,{backgroundColor: props.color}]}>
+  <View style = {[styles.main,{backgroundColor: "#ECECEC"}]}>
     <Pressable android_ripple={{color:"blue"}}
      style = {({pressed}) => 
       [styles.press, pressed ? styles.buttonPressed : null]
@@ -25,7 +25,8 @@ export default CategoryTile
 const styles = StyleSheet.create({
   main:{
     flex:1,
-    height:150,
+    height:70,
+    width:"80%",
     borderWidth:2,
     borderRadius:10,
     margin:10,
